@@ -1,0 +1,43 @@
+## RGC syntax for GNU nano
+## Copy to ~/.config/nano/rgc.nanorc and add to your nanorc:
+##   include "~/.config/nano/rgc.nanorc"
+
+syntax rgc "\.rg$"
+
+comment "#"
+
+## Control keywords
+color brightblue "\<(if|elif|else|for|in|while|break|continue|pass|return|match|case|from|public)\>"
+
+## Declarations
+color brightblue "\<(def|class|enum|interface|import)\>"
+
+## Boolean operators / self
+color brightblue "\<(and|or|not|self)\>"
+
+## Built-in types
+color blue "\<(int|float|bool|str)\>"
+
+## Built-in functions
+color cyan "\<(print|range|to_string|args|read_file|write_file|system|len)\>"
+
+## Constants
+color brightred "\<(True|False|None)\>"
+
+## Borrow annotations (@ and @var)
+color brightyellow "@var\b|@[A-Za-z_][A-Za-z0-9_]*"
+
+## Numbers (decimal, float, exponent, hex)
+color yellow "\<0[xX][0-9a-fA-F_]+>|\<[0-9][0-9_]*(\.[0-9][0-9_]*)?([eE][+-]?[0-9]+)?\>"
+
+## Strings
+color green "\"(\\.|[^\"\\])*\""
+
+## Line comments
+color brightblack "#.*"
+
+## TODO markers
+color brightwhite,blue "TODO|FIXME|XXX|HACK|NOTE"
+
+## Trailing whitespace
+color ,red "[[:space:]]+$"
